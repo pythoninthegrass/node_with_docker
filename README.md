@@ -21,19 +21,19 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 
 # build image
-docker build -t <github_username>/node_with_docker:<version> .
+docker build -t <dockerhub_username>/node_with_docker:<version> .
 
 # list running docker containers
 docker ps
 
 # run container on tcp port 8000
-docker run --rm -d --name node_with_docker -p 8000:8000 <github_username>/node_with_docker:0.0.1
+docker run --rm -d --name node_with_docker -p 8000:8000 <dockerhub_username>/node_with_docker:0.0.1
 
 # tag image as latest
-docker tag <github_username>/node_with_docker:0.0.1 <github_username>/node_with_docker:latest
+docker tag <dockerhub_username>/node_with_docker:0.0.1 <dockerhub_username>/node_with_docker:latest
 
 # mount local directory to container
-docker run --rm -d --name my_node_with_docker -p 8000:8000 -v $(pwd):/app <github_username>/node_with_docker:latest
+docker run --rm -d --name my_node_with_docker -p 8000:8000 -v $(pwd):/app <dockerhub_username>/node_with_docker:latest
 
 # exec into container
 λ docker exec -it my_node_with_docker bash
@@ -52,7 +52,7 @@ docker stop my_node_with_docker
 docker login
 
 # push to registry
-docker push <github_username>/node_with_docker:0.0.1
+docker push <dockerhub_username>/node_with_docker:0.0.1
 ```
 
 ## Further Reading
