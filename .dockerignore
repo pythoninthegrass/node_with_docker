@@ -1,2 +1,11 @@
 # node_modules  # uncomment in prod
 build
+.dockerignore
+.editorconfig
+.git
+.github
+.gitignore
+.run-server.sh
+*.ipynb
+*.md
+*.pdf
